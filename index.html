@@ -105,7 +105,7 @@
 
                 var reader = new FileReader();
                 reader.onloadend = function () {
-                    //console.log("reader.result" + reader.result);
+                    console.log("reader.result" + reader.result);
                     var buf = buffer.Buffer(reader.result); // Convert data into buffer
                     ipfs.files.add(buf, (err, result) => {
                         // Upload buffer to IPFS
@@ -116,14 +116,14 @@
 
                         var hash_img_url = IPFS_URL + result[0].hash;
 
-                        //console.log(`Url --> ${hash_img_url}`);
+                        console.log(`Url --> ${hash_img_url}`);
                         $("#ipfs_file_url").text(hash_img_url);
                         $("#ipfs_file_url").attr("href", hash_img_url);
                         $("#hash_img_url").val(hash_img_url);
                     });
                 };
 
-                //console.log($('input#uploadfile')[0].files[0]);
+                console.log($('input#uploadfile')[0].files[0]);
                 reader.readAsArrayBuffer($("input#uploadfile")[0].files[0]); // Read Provided File
             });
 
